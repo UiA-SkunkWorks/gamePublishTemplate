@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/icon.png">
+</head>
+<title>Game : Title</title>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<style>
+    body {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Roboto', sans-serif;
+        background-image: url(pattern.png);
+        background-size: 250px;
+    }
+
+    a {
+        color: black;
+    }
+</style>
+</head>
+
+<main style="display: flex;background-color: white;max-width: 60vw;padding-left: 10vw; padding-right: 10vw;padding-top: 10vh;padding-bottom: 10vh;min-height: 60vh;">
+    <article>
+        <header>
+            <h1></h1>
+            <div style="display:flex;gap:1em;">
+
+                <div style="display: flex; align-items: center;">
+                    <i data-lucide="clock"></i>
+                    <strong>Playtime:</strong><span id="playtime" style="margin-left: 0.5em;"></span>
+                </div>
+
+                <div style="display: flex; align-items: center;">
+                    <i data-lucide="users"></i>
+                    <strong>Players:</strong><span id="players" style="margin-left: 0.5em;"></span>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <p id="description"></p>
+            </div>
+        </header>
+
+        <h2>Resources</h2>
+        <ul style="list-style:none;" id="resources">
+            <li><a href="rules.pdf">Rules</a></li>
+            <li><a href="pnp.pdf">PnP Game</a></li>
+        </ul>
+
+    </article>
+
+</main>
+
+
+<body>
+    <script type="module" defer>
+        let config = await(await fetch("config.json")).json();
+        document.querySelector("header > h1").textContent = config.name;
+        document.title = `Chronical game : ${config.name}`;
+        document.getElementById("playtime").textContent = `${config.playTime} minutes`;
+        document.getElementById("players").textContent = `${config.players}`;
+        document.getElementById("description").textContent = config.description;
+
+        for (let resource of config?.resources) {
+            let li = document.createElement("li");
+            let a = document.createElement("a");
+            a.setAttribute("href", resource.src);
+            a.textContent = resource.name;
+            li.appendChild(a);
+            document.getElementById("resources").appendChild(li);
+        }
+
+
+        lucide.createIcons();
+    </script>
+
+</body>
+
+</html>

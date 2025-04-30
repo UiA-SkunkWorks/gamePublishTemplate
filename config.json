@@ -1,0 +1,16 @@
+{
+    "name": "Scarfuffle",
+    "playTime": 20,
+    "players": "2",
+    "description": "Having battled for generations the waring factions bla bla bla some more text. More bla bla, be the last faction standing Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "designer": {
+        "name": "Demo Oranisem 1",
+        "contact": "n/a"
+    },
+    "resources": [
+        {
+            "name": "Printable ruler",
+            "src": "ruler.pdf"
+        }
+    ]
+}
